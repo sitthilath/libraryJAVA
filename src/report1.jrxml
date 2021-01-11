@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="76cb1ced-d60d-4dcc-a9ec-e8947f80c9b1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Report_dateAndtime" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new Date()]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     tb_member.`m_name` AS tb_member_m_name,
+     tb_member.`m_lastname` AS tb_member_m_lastname,
+     tb_borrow.`borrow_id` AS tb_borrow_borrow_id,
+     tb_borrow.`borrow_date` AS tb_borrow_borrow_date,
+     tb_borrow.`status` AS tb_borrow_status,
+     tb_book.`b_name` AS tb_book_b_name
+FROM
+     `tb_member` tb_member INNER JOIN `tb_borrow` tb_borrow ON tb_member.`m_id` = tb_borrow.`member_id`
+     INNER JOIN `tb_book` tb_book ON tb_borrow.`book_id` = tb_book.`b_id`]]>
+	</queryString>
+	<field name="tb_member_m_name" class="java.lang.String"/>
+	<field name="tb_member_m_lastname" class="java.lang.String"/>
+	<field name="tb_borrow_borrow_id" class="java.lang.Integer"/>
+	<field name="tb_borrow_borrow_date" class="java.sql.Date"/>
+	<field name="tb_borrow_status" class="java.lang.String"/>
+	<field name="tb_book_b_name" class="java.lang.String"/>
+	<variable name="Total" class="java.lang.Integer" calculation="Sum"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="62" uuid="57f68d86-63f7-45cf-9f01-7a6db3ea41e3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Phetsarath OT" size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ລາຍງານການຢືມປື້ມ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="55" splitType="Stretch">
+			<textField>
+				<reportElement x="367" y="1" width="175" height="54" uuid="9d66b001-9556-47ba-ae0a-5bbbf11317b0"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Report_dateAndtime}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="78" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="42" width="45" height="36" uuid="7228da95-9d22-4a0c-833d-d86106cd2ec4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Phetsarath OT" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ໄອດີຢືມ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="42" width="106" height="36" uuid="a3502e8c-201f-41e8-9642-e0cb05c447d9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Phetsarath OT" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ຊື່ສະມາຊິກ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="151" y="42" width="99" height="36" uuid="d96451d2-4013-4cde-8b5e-ee12ab1c2aad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Phetsarath OT" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ນາມສະກຸນສະມາຊິກ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="42" width="117" height="36" uuid="e88a15c8-a2f5-4f19-a654-f0f21468698f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Phetsarath OT" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ຊື່ປື້ມ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="467" y="42" width="88" height="36" uuid="b9c6c0de-ec37-480e-bb28-1fda488d6027"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Phetsarath OT" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ໝາຍເຫດ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="367" y="42" width="100" height="36" uuid="990bb522-5c9c-431e-a1bf-bf05b2d6d6ce"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Phetsarath OT" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ວັນທີຢືມ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="42" width="45" height="36" uuid="6e3a484d-0c84-4bfe-841e-466ba1b3b6d2"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="45" y="42" width="106" height="36" uuid="c5952156-85c2-4c88-ad6d-7b7ae5eded81"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="150" y="42" width="100" height="36" uuid="05c51163-ff8a-4b35-9743-c28832ce67eb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="250" y="42" width="117" height="36" uuid="ad23949a-c581-4580-9748-f2404ceb3ac6"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="367" y="42" width="100" height="36" uuid="4ce8801d-81b2-4f3a-bd7c-aa218ca045e0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="467" y="42" width="88" height="36" uuid="4c198781-d45f-4c7d-b3e4-78609c785696"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="45" height="31" uuid="efc674f0-5f20-4bd9-b3cc-efb3a016b0b7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Phetsarath OT" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_borrow_borrow_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="0" width="106" height="31" uuid="78312a98-46a9-4b03-a9d4-aca8e653e042"/>
+				<textElement textAlignment="Center">
+					<font fontName="Phetsarath OT" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_member_m_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="0" width="99" height="31" uuid="a2dc45a7-46c3-4446-9e7a-aa3a9b87380e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Phetsarath OT" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_member_m_lastname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="0" width="117" height="31" uuid="d647fc85-088e-4d9d-8a60-351929c80698"/>
+				<textElement textAlignment="Center">
+					<font fontName="Phetsarath OT" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_book_b_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="367" y="0" width="100" height="31" uuid="94163e7c-7730-492c-8bb7-73a9b53f624c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_borrow_borrow_date}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="0" width="45" height="31" uuid="e3a6cdfb-ddd0-4935-b82d-752c9ffd64f6"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="45" y="0" width="106" height="31" uuid="1f4b3da1-28a4-48e9-b8f9-d056a78bb8c4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="150" y="0" width="100" height="31" uuid="13557cb4-6dba-4295-821b-751fe96c2109"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="250" y="0" width="117" height="31" uuid="ac76a8bf-e9f4-46c7-a029-9048b95fddd9"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="367" y="0" width="100" height="31" uuid="537ba5b5-b6f9-4934-b5df-161c7ceba32e"/>
+			</rectangle>
+			<textField>
+				<reportElement x="467" y="0" width="88" height="31" uuid="8c68eb48-ef85-4bb9-84eb-b93845867d0d"/>
+				<textElement>
+					<font fontName="Phetsarath OT"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_borrow_status}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="467" y="0" width="88" height="31" uuid="792f3854-6acc-4f17-9c87-24a8454a1847"/>
+			</rectangle>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="555" height="54" uuid="4c69636c-087a-4d46-8763-7fa9926eb2ff"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
